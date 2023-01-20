@@ -1,0 +1,34 @@
+---
+- name: Installation and configuration Apache2 avec modification de la page index.html
+  hosts: serverweb
+  become: true
+  tasks:
+    - name: Installation Apache2
+      apt:
+        name: apache2
+        state: present
+
+- name: Installation and configuration Apache2
+  hosts: serverweb
+  become: true
+  tasks:
+    - name: Installation Apache2
+      apt:
+        name: apache2
+        state: present
+    - name: Creation de la page index
+      copy:
+        content:  <html>
+          <head>
+            <title>Bienvenue sur notre site web perso</title>
+          </head>
+          <body>
+            <h1>Bienvenue sur le Site informatique</h1>
+            <p>Nous esperons que vous apprecierez votre visite.</p>
+          </body>
+          </html>
+        dest: /var/www/html/index.html
+    - name: Demarage du service Apache2
+      service:
+        name: apache2
+        state: started
