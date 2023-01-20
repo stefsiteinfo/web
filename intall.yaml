@@ -20,7 +20,7 @@
       copy:
         content:  <html>
           <head>
-            <title>Bienvenue sur notre site web perso</title>
+            <title>Bienvenue testsur notre site web perso</title>
           </head>
           <body>
             <h1>Bienvenue sur le Site informatique</h1>
